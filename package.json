@@ -1,0 +1,26 @@
+{
+  "name": "lit-profiler-helper",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "A helper library to profile LitElement component rendering.",
+  "keywords": ["lit", "lit-element", "profiler", "web-components"],
+  "author": "Mapherez",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "peerDependencies": {
+    "lit": "^2 || ^3"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}
