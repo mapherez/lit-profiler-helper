@@ -9,6 +9,10 @@ export interface ProfilerOptions {
 }
 
 export function enableLitProfiler(options: ProfilerOptions = {}): void {
+  if (process.env.NODE_ENV === 'production') {
+    console.warn('[lit-profiler] Warning: Profiler is enabled in production!');
+  }
+
   const opts = {
     logToConsole: false,
     emitEvents: false,
