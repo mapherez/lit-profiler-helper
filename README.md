@@ -49,12 +49,6 @@ if (import.meta.env.DEV) {
 
 This ensures the profiler is completely disabled in production builds and is tree-shaken from the final bundle.
 
-Optionally inside `enableLitProfiler()` you can add a runtime check:
-```ts
-if (process.env.NODE_ENV === 'production') {
-  console.warn('[lit-profiler] Warning: Profiler is enabled in production!');
-}
-```
 
 ## Configuration
 | Option            | Type    | Default | Description                                                   |
