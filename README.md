@@ -72,5 +72,15 @@ You must use both the extension and this package for the profiler to work.
 2. Your app starts emitting lifecycle events.
 3. The extension listens to `window.__litProfiler.emit(...)` and updates the DevTools tab.
 
+## Testing
+Run the unit tests with [Vitest](https://vitest.dev/):
+```bash
+npm test
+```
+To see coverage information:
+```bash
+npm run test:coverage
+```
+
 ## License
 MIT © Mapherez & contributors
