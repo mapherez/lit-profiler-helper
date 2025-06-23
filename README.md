@@ -51,9 +51,12 @@ This ensures the profiler is completely disabled in production builds and is tre
 
 
 ## Configuration
-| Option            | Type    | Default | Description                                                   |
-| ----------------- | ------- | ------- | ------------------------------------------------------------- |
-| `trackProperties` | boolean | false   | Whether to emit prop diffs between renders using `deepDiff()` |
+| Option                 | Type    | Default | Description |
+| ---------------------- | ------- | ------- | --------------------------------------------------------------- |
+| `logToConsole`         | boolean | false   | Log profiler events to the console |
+| `emitEvents`           | boolean | false   | Dispatch `CustomEvent`s for each profiler event |
+| `autoLabelComponents`  | boolean | false   | Prefix component IDs with their class name |
+| `trackProperties`      | boolean | false   | Emit property diffs between renders using `deepDiff()` |
 
 ## Emitted Events
 This package emits structured events via `window.__litProfiler.emit(event: { type, data })`.
