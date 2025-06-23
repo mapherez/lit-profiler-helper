@@ -23,6 +23,39 @@ This will instrument all Lit components on the page, automatically.
 
 ℹ️ You must also have the Lit Profiler DevTools Extension installed for this to work. This package only emits events — the extension handles the UI.
 
+### ⚠️ Prevent usage in production
+To avoid performance issues, memory leaks, and unnecessary overhead, make sure `lit-profiler-helper` is only enabled in development mode.
+
+Here’s the recommended setup:
+
+#### ✅ With Vite or Webpack
+```ts
+// main.ts or root component (e.g., con-app.ts)
+if (process.env.NODE_ENV !== 'production') {
+  import('lit-profiler-helper').then(({ enableLitProfiler }) => {
+    enableLitProfiler({ trackProperties: true });
+  });
+}
+```
+
+#### ✅ With Vite (alternative using import.meta.env)
+```ts
+if (import.meta.env.DEV) {
+  import('lit-profiler-helper').then(({ enableLitProfiler }) => {
+    enableLitProfiler({ trackProperties: true });
+  });
+}
+```
+
+This ensures the profiler is completely disabled in production builds and is tree-shaken from the final bundle.
+
+Optionally inside `enableLitProfiler()` you can add a runtime check:
+```ts
+if (process.env.NODE_ENV === 'production') {
+  console.warn('[lit-profiler] Warning: Profiler is enabled in production!');
+}
+```
+
 ## Configuration
 | Option            | Type    | Default | Description                                                   |
 | ----------------- | ------- | ------- | ------------------------------------------------------------- |
